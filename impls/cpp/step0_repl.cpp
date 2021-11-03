@@ -1,33 +1,33 @@
-#include <string>
+#include <string_view>
 #include <iostream>
 
 #include "linenoise.hpp"
 
-std::string READ(std::string input) {
+std::string_view READ(std::string_view input) {
     return input;
 }
 
-std::string EVAL(std::string input) {
+std::string_view EVAL(std::string_view input) {
     return input;
 }
 
-std::string PRINT(std::string input) {
+std::string_view PRINT(std::string_view input) {
     return input;
 }
 
-std::string rep(std::string input) {
-    std::string read = READ(input);
-    std::string eval = EVAL(read);
+std::string_view rep(std::string_view input) {
+    std::string_view read = READ(input);
+    std::string_view eval = EVAL(read);
     return PRINT(eval);
 }
 
 int main() {
-    std::string prompt = "user> ";
+    const char* prompt = "user> ";
     const auto history_path = "history.txt";
     linenoise::LoadHistory(history_path);
     while (true) {
         std::string line {};
-        auto quit = linenoise::Readline(prompt.c_str(), line);
+        auto quit = linenoise::Readline(prompt, line);
         if (quit) {
             break;
         }
