@@ -32,8 +32,9 @@ build/
 *.exe
 *.out
 *.app
+*.dSYM
 
 # IDE
 .idea/
 .vscode/
-.idea/
+.DS_Store/
